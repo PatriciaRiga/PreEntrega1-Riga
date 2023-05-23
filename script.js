@@ -1,18 +1,5 @@
-/* SIMULADOR PARA CALCULAR PROMEDIOS Y OTORGAR PREMIOS A ALUMNOS CON PROMEDIOS ALTOS:
+//SIMULADOR PARA CALCULAR PROMEDIOS Y OTORGAR PREMIOS A ALUMNOS CON PROMEDIOS ALTOS:
 
--Instancio como objetos a los alumnos.
--Los agrupo a todos en un array.
--El usuario elige un alumno para saber su promedio:
-    Muestro al usuario opciones para que elija entre los objetos de mi array.
-    Recibo la opción del usuario.
-    Individualizo al alumno que haya elegido el usuario.
--Calculo el promedio del alumno elegido por el usuario en base a las 3 notas que el profesor le asignó.
--Otorgo un premio al alumno si obtuvo un promedio alto (de entre 9 y 10).
-    Le doy opciones al usuario para que elija su premio.
-    Recibo la elección del usuario y le muestro un mensaje de confirmación.
--Filtro alumnos para mostrar sólo a los que tengan un promedio alto.
-
-*/
 
 //Instancio como objetos a los alumnos a partir de una clase constructora:
 class Alumno{
@@ -77,7 +64,7 @@ todosPromedio();
 
 //Premio a los alumnos cuyo promedio sea 9 o 10:
 if (alumnoElegido.promedio >= 9) {
-    alumnoElegido.promedio = alert(`El promedio de ${alumnoElegido.nombre} es ${alumnoElegido.promedio}. Por estar entre los alumnos con promedios altos, recibirás un premio en tu próxima clase.`);
+    alert(`El promedio de ${alumnoElegido.nombre} es ${alumnoElegido.promedio}. Por estar entre los alumnos con promedios altos, recibirás un premio en tu próxima clase.`);
 
     //Le doy opciones al usuario para que elija qué premio quiere recibir:
     let opcionPremio = parseInt(prompt("Seleccioná el premio que te gustaría recibir:  \n1. Un libro de regalo \n2. Un descuento en tu próximo curso \n3. Una clase de práctica gratis antes de tu próximo examen \n4. Salir"));
