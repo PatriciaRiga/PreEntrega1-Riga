@@ -12,7 +12,6 @@
 */
 
 //Instancio como objetos a los alumnos a partir de una clase constructora:
-
 class Alumno{
     constructor(id, nombre, nivel, nota1, nota2, nota3){
         this.id = id,
@@ -63,32 +62,46 @@ const alumnoElegido = mensajeInicio();
 //Le muestro al usuario la opción que eligió:
 alert(`Seleccionaste la opción ${alumnoElegido.id} - ${alumnoElegido.nombre} del nivel ${alumnoElegido.nivel}`);
 
-//Creo una funcion para calcular el promedio del alumno en base a sus 3 notas:
-let sumaNotas = (alumnoElegido.nota1 + alumnoElegido.nota2 + alumnoElegido.nota3) / 3;
+//Creo una funcion para calcular el promedio de todos los alumnos en base a sus 3 notas:
+function todosPromedio() {
+    ALUMNOS.forEach(a => {
+      a.promedio = (a.nota1 + a.nota2 + a.nota3) / 3;
+      a.promedio = Math.round(a.promedio * 100) / 100;
+    });
+  };
 
-function calcularPromedio(alumnoElegido) {
-    alumnoElegido.promedio = sumaNotas;
-};
-calcularPromedio(alumnoElegido); 
-
-//Premio a los alumnos cuya nota sea 9 o 10:
-if (alumnoElegido.promedio >= 9) {
-    alumnoElegido.promedio = alert(`El promedio de ${alumnoElegido.nombre} es ${alumnoElegido.promedio}. Por estar entre los alumnos con promedios altos, recibirás un premio en tu próxima clase. Que lo disfrutes!`);
-    } else {
-        alumnoElegido.promedio = alert(`El promedio de ${alumnoElegido.nombre} es ${alumnoElegido.promedio}. Cuando tu promedio sea 9 o 10, recibirás un premio. A seguir esforzándote!`);
-};
-
-//Filtro a los alumnos para crear un nuevo array en el cual sólo vea los alumnos premiados:
 todosPromedio();
 
-let alumnosPremio = ALUMNOS.filter(alumno => alumno.promedio >= 9);
+//Premio a los alumnos cuyo promedio sea 9 o 10:
+if (alumnoElegido.promedio >= 9) {
+    alumnoElegido.promedio = alert(`El promedio de ${alumnoElegido.nombre} es ${alumnoElegido.promedio}. Por estar entre los alumnos con promedios altos, recibirás un premio en tu próxima clase.`);
 
-function todosPromedio () {
-ALUMNOS.forEach(alumno => { 
-    alumno.promedio = (alumno.nota1 + alumno.nota2 + alumno.nota3) / 3;
-    });
-}
+    //Le doy opciones al usuario para que elija qué premio quiere recibir:
+    let opcionPremio = parseInt(prompt("Seleccioná el premio que te gustaría recibir:  \n1. Un libro de regalo \n2. Un descuento en tu próximo curso \n3. Una clase de práctica gratis antes de tu próximo examen \n4. Salir"));
+    
+    switch (opcionPremio){
+        case 1:
+            alert("Podés retirar tu libro la próxima clase. Que lo disfrutes!");
+            break; 
+        case 2: 
+            alert("Vas a tener un descuento del 20% en tu próximo curso. Que lo disfrutes!");
+            break;
+        case 3: 
+            alert("Vas a tener una clase de práctica gratis antes de tu próximo examen. Que la disfrutes!");
+            break;
+        case 4: 
+            alert("Adiós!");
+            break;
+        default:
+            alert("Ingresá una opción válida");
+            opcionPremio = parseInt(prompt("Seleccioná el premio que te gustaría recibir:  \n1. Un libro de regalo \n2. Un descuento en tu próximo curso \n3. Una clase de práctica gratis antes de tu próximo examen \n4. Salir"));
+    };
+
+} else {
+    alumnoElegido.promedio = alert(`El promedio de ${alumnoElegido.nombre} es ${alumnoElegido.promedio}. Cuando tu promedio sea 9 o 10, recibirás un premio. A seguir esforzándote!`);
+};
+
+
+//Filtro a los alumnos para crear un nuevo array en el cual sólo vea los alumnos premiados por consola:
+let alumnosPremio = ALUMNOS.filter(a => a.promedio >= 9);
 console.table(alumnosPremio);
-
-//Muestro al usuario los alumnos que obtienen premios:
-alert(`Los alumnos que reciben premio son ${ALUMNOS[1].nombre} y ${ALUMNOS[2].nombre}. ¡Felicitaciones!`);
