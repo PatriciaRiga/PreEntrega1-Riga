@@ -1,6 +1,5 @@
 //SIMULADOR PARA CALCULAR PROMEDIOS Y OTORGAR PREMIOS A ALUMNOS CON PROMEDIOS ALTOS:
 
-
 //Instancio como objetos a los alumnos a partir de una clase constructora:
 class Alumno{
     constructor(id, nombre, nivel, nota1, nota2, nota3){
