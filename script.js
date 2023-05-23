@@ -8,7 +8,10 @@
     Individualizo al alumno que haya elegido el usuario.
 -Calculo el promedio del alumno elegido por el usuario en base a las 3 notas que el profesor le asignó.
 -Otorgo un premio al alumno si obtuvo un promedio alto (de entre 9 y 10).
+    Le doy opciones al usuario para que elija su premio.
+    Recibo la elección del usuario y le muestro un mensaje de confirmación.
 -Filtro alumnos para mostrar sólo a los que tengan un promedio alto.
+
 */
 
 //Instancio como objetos a los alumnos a partir de una clase constructora:
